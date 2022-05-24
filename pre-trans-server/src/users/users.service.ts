@@ -13,4 +13,8 @@ export class UsersService {
     this.users.push(user);
     return user;
   }
+
+  findUser(id: string): User {
+    return this.users.find((user) => user.id === id);
+  }
 }

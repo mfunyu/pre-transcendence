@@ -26,4 +26,9 @@ export class UsersController {
     };
     return this.usersService.addUser(user);
   }
+
+  @Get(':id') // /users/{id}
+  findUser(@Param('id') id: string): User {
+    return this.usersService.findUser(id);
+  }
 }
