@@ -3,9 +3,9 @@ import { User } from './users.model';
 
 @Injectable()
 export class UsersService {
-	private users: User[] = [];
+  private users: User[] = [];
 
-	getAll(): User[] {
-		return this.users;
-	}
+  getAll(): User[] {
+    return this.users;
+  }
 }
