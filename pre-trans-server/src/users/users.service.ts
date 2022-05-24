@@ -8,4 +8,9 @@ export class UsersService {
   getAll(): User[] {
     return this.users;
   }
+
+  addUser(user: User): User {
+    this.users.push(user);
+    return user;
+  }
 }
