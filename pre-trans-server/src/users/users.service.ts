@@ -17,4 +17,10 @@ export class UsersService {
   findUser(id: string): User {
     return this.users.find((user) => user.id === id);
   }
+
+  updateLevel(id: string): User {
+    const user: User = this.users.find((user) => user.id === id);
+    if (user) user.level++;
+    return user;
+  }
 }
