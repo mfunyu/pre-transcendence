@@ -23,4 +23,8 @@ export class UsersService {
     if (user) user.level++;
     return user;
   }
+
+  deleteUser(id: string): void {
+    this.users = this.users.filter((user) => user.id !== id);
+  }
 }
