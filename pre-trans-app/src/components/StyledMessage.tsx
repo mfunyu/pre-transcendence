@@ -1,11 +1,16 @@
-function StyledMessage() {
+interface MessageProps {
+  color: string;
+  message: string;
+}
+
+function StyledMessage(props: MessageProps) {
   const contentStyle = {
-    color: "#00babc",
+    color: props.color,
     fontSize: "20px",
   };
   return (
     <>
-      <p style={contentStyle}>42Tokyo : Japan</p>
+      <p style={contentStyle}>{props.message}</p>
     </>
   );
 }
