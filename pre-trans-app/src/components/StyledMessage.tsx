@@ -3,7 +3,7 @@ interface MessageProps {
   message: string;
 }
 
-const StyledMessage = (props: MessageProps) => {
+const StyledMessage: React.FC<MessageProps> = (props) => {
   const contentStyle = {
     color: props.color,
     fontSize: "20px",
