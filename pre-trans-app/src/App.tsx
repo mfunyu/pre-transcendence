@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>Hello World!</h1>
-      <StyledMessage color="#00babc" message="42Tokyo : Japan" />
+      <StyledMessage color="#00babc">42Tokyo : Japan</StyledMessage>
       <button onClick={onClickButton}>Click here :)</button>
     </>
   );

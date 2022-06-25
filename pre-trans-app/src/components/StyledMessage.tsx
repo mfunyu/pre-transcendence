@@ -1,6 +1,6 @@
 interface MessageProps {
   color: string;
-  message: string;
+  children: React.ReactNode;
 }
 
 function StyledMessage(props: MessageProps) {
@@ -10,7 +10,7 @@ function StyledMessage(props: MessageProps) {
   };
   return (
     <>
-      <p style={contentStyle}>{props.message}</p>
+      <p style={contentStyle}>{props.children}</p>
     </>
   );
 }
