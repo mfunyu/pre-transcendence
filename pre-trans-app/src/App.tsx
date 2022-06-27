@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import StyledMessage from "./components/StyledMessage";
 
 function App() {
-  const onClickButton = () => alert("Button clicked");
+  const onClickCountUp = () => {
+    setNum(num + 1);
+  };
   const [num, setNum] = useState(0);
   return (
     <>
       <h1>Hello World!</h1>
       <StyledMessage color="#00babc">{num}Tokyo : Japan</StyledMessage>
-      <button onClick={onClickButton}>Click here :)</button>
+      <button onClick={onClickCountUp}>+1 :)</button>
     </>
   );
 }
