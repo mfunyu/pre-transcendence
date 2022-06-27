@@ -10,6 +10,12 @@ function App() {
   };
   const [num, setNum] = useState(0);
   const [showFaceFlag, setShowFaceFlag] = useState(true);
+
+  if (num % 3 === 0) {
+    setShowFaceFlag(true);
+  } else {
+    setShowFaceFlag(false);
+  }
   return (
     <>
       <h1>Hello World!</h1>
