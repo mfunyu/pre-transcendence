@@ -12,9 +12,9 @@ function App() {
   const [showFaceFlag, setShowFaceFlag] = useState(true);
 
   if (num % 3 === 0) {
-    setShowFaceFlag(true);
+    showFaceFlag || setShowFaceFlag(true);
   } else {
-    setShowFaceFlag(false);
+    showFaceFlag && setShowFaceFlag(false);
   }
   return (
     <>
