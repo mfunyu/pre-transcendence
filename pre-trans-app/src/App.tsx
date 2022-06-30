@@ -24,8 +24,12 @@ function App() {
         {num}
         Tokyo : Japan
       </StyledMessage>
-      <button onClick={onClickCountUp} type="button">+1 :)</button>
-      <button onClick={onClickSwitchFlag} type="button">on / off</button>
+      <button onClick={onClickCountUp} type="button">
+        +1 :)
+      </button>
+      <button onClick={onClickSwitchFlag} type="button">
+        on / off
+      </button>
       {showFaceFlag && <p> ^ ^</p>}
     </>
   );

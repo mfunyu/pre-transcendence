@@ -9,9 +9,7 @@ function StyledMessage({ color, children }: MessageProps) {
     fontSize: '20px',
   };
 
-  return (
-    <p style={contentStyle}>{children}</p>
-  );
+  return <p style={contentStyle}>{children}</p>;
 }
 
 export default StyledMessage;
