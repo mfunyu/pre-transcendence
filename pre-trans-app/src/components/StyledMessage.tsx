@@ -3,15 +3,14 @@ interface MessageProps {
   children: React.ReactNode;
 }
 
-function StyledMessage(props: MessageProps) {
+function StyledMessage({ color, children }: MessageProps) {
   const contentStyle = {
-    color: props.color,
-    fontSize: "20px",
+    color,
+    fontSize: '20px',
   };
+
   return (
-    <>
-      <p style={contentStyle}>{props.children}</p>
-    </>
+    <p style={contentStyle}>{children}</p>
   );
 }
 
