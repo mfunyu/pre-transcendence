@@ -95,6 +95,12 @@ module.exports = {
 		},
 	  ],
 	  'react/react-in-jsx-scope': 'off',
+	  'react/function-component-definition': [
+		'error',
+		{
+		  namedComponents: ['arrow-function'],
+		},
+	  ],
 	},
 	overrides: [
 	  {

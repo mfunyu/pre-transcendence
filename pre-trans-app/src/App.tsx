@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import StyledMessage from './components/StyledMessage';
 
-function App() {
+const App = () => {
   const [num, setNum] = useState(0);
   const [showFaceFlag, setShowFaceFlag] = useState(true);
 
@@ -33,6 +33,6 @@ function App() {
       {showFaceFlag && <p> ^ ^</p>}
     </>
   );
-}
+};
 
 export default App;
