@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StyledMessage from './components/StyledMessage';
 
 const App = () => {
@@ -11,11 +11,14 @@ const App = () => {
   const onClickSwitchFlag = () => {
     setShowFaceFlag(!showFaceFlag);
   };
-  if (num % 3 === 0 && !showFaceFlag) {
-    setShowFaceFlag(true);
-  } else if (showFaceFlag) {
-    setShowFaceFlag(false);
-  }
+  useEffect(() => {
+    if (num % 3 === 0 && !showFaceFlag) {
+      setShowFaceFlag(true);
+    } else if (showFaceFlag) {
+      setShowFaceFlag(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [num]);
 
   return (
     <>
