@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     if (num % 3 === 0 && !showFaceFlag) {
       setShowFaceFlag(true);
-    } else if (showFaceFlag) {
+    } else if (num % 3 !== 0 && showFaceFlag) {
       setShowFaceFlag(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
