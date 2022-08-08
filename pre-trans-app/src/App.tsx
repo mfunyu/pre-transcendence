@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useCallback } from 'react';
+import io from 'socket.io-client';
 import StyledMessage from './components/StyledMessage';
 
 const App = () => {
   const [num, setNum] = useState(0);
   const [showFaceFlag, setShowFaceFlag] = useState(true);
+
+  const socket = io('http://localhost:3000');
 
   const onClickCountUp = () => {
     setNum(num + 1);
@@ -20,6 +24,10 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [num]);
 
+  const onClickSubmit = useCallback(() => {
+    socket.emit('message', 'hello');
+  }, []);
+
   return (
     <>
       <h1>Hello World!</h1>
@@ -35,7 +43,7 @@ const App = () => {
       </button>
       {showFaceFlag && <p> ^ ^</p>}
       <input id="inputText" type="text" />
-      <input id="sendButton" type="submit" />
+      <input id="sendButton" onClick={onClickSubmit} type="submit" />
     </>
   );
 };
