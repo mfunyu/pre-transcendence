@@ -34,6 +34,8 @@ const App = () => {
         on / off
       </button>
       {showFaceFlag && <p> ^ ^</p>}
+      <input id="inputText" type="text" />
+      <input id="sendButton" type="submit" />
     </>
   );
 };
