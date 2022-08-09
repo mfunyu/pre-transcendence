@@ -24,6 +24,13 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [num]);
 
+  useEffect(() => {
+    socket.on('connect', () => {
+      // eslint-disable-next-line no-console
+      console.log('connection ID : ', socket.id);
+    });
+  }, []);
+
   const onClickSubmit = useCallback(() => {
     socket.emit('message', 'hello');
   }, []);
