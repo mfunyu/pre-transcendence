@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useCallback } from 'react';
 import io from 'socket.io-client';
@@ -6,6 +7,7 @@ import StyledMessage from './components/StyledMessage';
 const App = () => {
   const [num, setNum] = useState(0);
   const [showFaceFlag, setShowFaceFlag] = useState(true);
+  const [inputText, setInputText] = useState('');
 
   const socket = io('http://localhost:3000');
 
@@ -26,14 +28,14 @@ const App = () => {
 
   useEffect(() => {
     socket.on('connect', () => {
-      // eslint-disable-next-line no-console
       console.log('connection ID : ', socket.id);
     });
   }, []);
 
   const onClickSubmit = useCallback(() => {
-    socket.emit('message', 'hello');
-  }, []);
+    console.log(inputText);
+    socket.emit('message', inputText);
+  }, [inputText]);
 
   return (
     <>
@@ -49,7 +51,14 @@ const App = () => {
         on / off
       </button>
       {showFaceFlag && <p> ^ ^</p>}
-      <input id="inputText" type="text" />
+      <input
+        id="inputText"
+        type="text"
+        value={inputText}
+        onChange={(event) => {
+          setInputText(event.target.value);
+        }}
+      />
       <input id="sendButton" onClick={onClickSubmit} type="submit" />
     </>
   );
