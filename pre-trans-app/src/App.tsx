@@ -8,6 +8,7 @@ const App = () => {
   const [num, setNum] = useState(0);
   const [showFaceFlag, setShowFaceFlag] = useState(true);
   const [inputText, setInputText] = useState('');
+  const [chatLog, setChatLog] = useState<string[]>([]);
 
   const socket = io('http://localhost:3000');
 
@@ -33,9 +34,15 @@ const App = () => {
   }, []);
 
   const onClickSubmit = useCallback(() => {
-    console.log(inputText);
     socket.emit('message', inputText);
   }, [inputText]);
+
+  useEffect(() => {
+    socket.on('update', (message: string) => {
+      console.log('recieved : ', message);
+      setChatLog([...chatLog, message]);
+    });
+  }, [chatLog]);
 
   return (
     <>
@@ -60,6 +67,10 @@ const App = () => {
         }}
       />
       <input id="sendButton" onClick={onClickSubmit} type="submit" />
+      {chatLog.map((message, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <p key={index}>{message}</p>
+      ))}
     </>
   );
 };
