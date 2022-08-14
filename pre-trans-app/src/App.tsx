@@ -4,13 +4,13 @@ import React, { useState, useEffect, useCallback } from 'react';
 import io from 'socket.io-client';
 import StyledMessage from './components/StyledMessage';
 
+const socket = io('http://localhost:3000');
+
 const App = () => {
   const [num, setNum] = useState(0);
   const [showFaceFlag, setShowFaceFlag] = useState(true);
   const [inputText, setInputText] = useState('');
   const [chatLog, setChatLog] = useState<string[]>([]);
-
-  const socket = io('http://localhost:3000');
 
   const onClickCountUp = () => {
     setNum(num + 1);
