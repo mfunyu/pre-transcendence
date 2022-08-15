@@ -11,6 +11,7 @@ const App = () => {
   const [showFaceFlag, setShowFaceFlag] = useState(true);
   const [inputText, setInputText] = useState('');
   const [chatLog, setChatLog] = useState<string[]>([]);
+  const [msg, setMsg] = useState('');
 
   const onClickCountUp = () => {
     setNum(num + 1);
@@ -40,9 +41,13 @@ const App = () => {
   useEffect(() => {
     socket.on('update', (message: string) => {
       console.log('recieved : ', message);
-      setChatLog([...chatLog, message]);
+      setMsg(message);
     });
-  }, [chatLog]);
+  }, []);
+
+  useEffect(() => {
+    setChatLog([...chatLog, msg]);
+  }, [msg]);
 
   return (
     <>
