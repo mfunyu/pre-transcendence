@@ -12,6 +12,7 @@ const App = () => {
   const [inputText, setInputText] = useState('');
   const [chatLog, setChatLog] = useState<string[]>([]);
   const [msg, setMsg] = useState('');
+  const [roomID, setRoomID] = useState('');
 
   const onClickCountUp = () => {
     setNum(num + 1);
@@ -63,6 +64,18 @@ const App = () => {
         on / off
       </button>
       {showFaceFlag && <p> ^ ^</p>}
+      <select
+        onChange={(event) => {
+          setRoomID(event.target.value);
+          socket.emit('joinRoom', event.target.value);
+          setChatLog([]);
+        }}
+        value={roomID}
+      >
+        <option value="">---</option>
+        <option value="room1">Room1</option>
+        <option value="room2">Room2</option>
+      </select>
       <input
         id="inputText"
         type="text"
